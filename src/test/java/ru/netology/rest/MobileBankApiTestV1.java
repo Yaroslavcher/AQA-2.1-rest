@@ -19,7 +19,7 @@ class MobileBankApiTestV1 {
           .get("demo/accounts")
       // Проверки
       .then()
-          .statusCode(200)
+          .statusCode(401)
           .body(matchesJsonSchemaInClasspath("accounts.schema.json"));
     }
 
@@ -39,7 +39,7 @@ class MobileBankApiTestV1 {
                 .when()
                 .get("demo/accounts")
                 .then()
-                .body("[0].currency",equalTo("RUB"));
+                .body("[0].currency",equalTo("RUR"));
     }
     @Test
     void shouldReturnCurrencyUSD() {
